@@ -4,8 +4,8 @@ const config = {
   darkMode: ["class"],
   // TODO: Check these paths
   content: [
-    "../../apps/dashboard/**/*.{ts,tsx}",
-    "../../packages/ui/src/components/**/*.{ts,tsx}",
+    "../../apps/web/**/*.{ts,tsx}",
+    "../../packages/ui/src/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
