@@ -1,20 +1,97 @@
-# Repositorio para la posición de desarrollador de software en BCC Innovation
+## **Tecnologías Utilizadas**
+- **Framework:** [Next.js](https://nextjs.org) (React) para crear una aplicación rápida y modular.
+- **Base de datos:** [Supabase](https://supabase.com) para manejar operaciones CRUD.
+- **Gestión de paquetes:** [Yarn](https://yarnpkg.com) para un manejo rápido de dependencias.
+- **Gestión de Node.js:** [nvm](https://github.com/nvm-sh/nvm) (o nvm-windows en Windows) para garantizar compatibilidad con la versión correcta de Node.js.
 
-La aplicación está basada en una plantilla publicada recientemente por mí: [supabase-auth-turborepo-boilerplate](https://github.com/Telmiyo/supabase-auth-turborepo-boilerplate)
+El proyecto esta creado encima de una platilla publicada recientemente, con la intención de agilizar el proceso: https://github.com/Telmiyo/supabase-auth-turborepo-boilerplate
 
-## Tecnologías usadas
+**app**
+[![Showcase](.stb/img/showcase-app.png)](https://github.com/Telmiyo/bcc-web-app)
 
-Las siguientes tecnologías han sido seleccionadas debido a mi reciente familiarización con ellas, la facilidad de uso que ofrecen y la escalabilidad que permiten:
+**db**
+[![Showcase](.stb/img/db.png)](https://github.com/Telmiyo/bcc-web-app)
 
-- **Turbo.js**: Permite la creación de repositorios monorepo, también conocidos como aplicaciones monolíticas. Esto ayuda a mejorar la organización y estructuración del espacio de trabajo, facilitando su escalabilidad. Un caso práctico es aislar los componentes de interfaz (`packages/ui`) para usarlos en diferentes aplicaciones dentro del mismo repositorio, como la configuración de la base de datos, infraestructura, etc., e importarlos en la aplicación principal (la web) o varias aplicaciones. Por ejemplo, tener una web app de documentación.
-- **Next.js**: Utilizado para desarrollar la aplicación web.
-- **Shadcn/ui**: Biblioteca de componentes Open Source.
-- **Supabase**: Plataforma de infraestructura. En este caso, se utiliza como base de datos para leer y escribir recetas.
-- **Vercel**: Plataforma para alojar la aplicación de manera rápida y eficiente.
-- **ChatGPT**: Me ha facilitado la creación de estilos básicos rápidamente, permitiéndome centrarme en la lógica principal para el manejo de recetas.
+---
 
-## Instalación
+## **Instrucciones de Instalación**
 
-No es necesario iniciar el proyecto para visualizarlo; se puede acceder al resultado directamente en [bcc-web-app-dashboard.vercel.app](https://bcc-web-app-dashboard.vercel.app/).
+Puede ejecutarse tanto en macOS como en Windows. **Nota para Windows:**  
+1. Usa [nvm-windows](https://github.com/coreybutler/nvm-windows) para gestionar versiones de Node.js.  
+2. Sustituye el comando `cp` por `Copy-Item` en PowerShell.
 
-La inicialización del proyecto está detallada en el repositorio [supabase-auth-turborepo-boilerplate](https://github.com/Telmiyo/supabase-auth-turborepo-boilerplate)
+### **Pasos:**
+
+1. **Clonar el repositorio**  
+   Abre una terminal y ejecuta:  
+   ```bash
+   git clone https://github.com/Telmiyo/bcc-web-app.git
+   cd bcc-web-app
+   ```
+
+2. **Instalar la versión correcta de Node.js**  
+   Utiliza `nvm` para asegurarte de estar en la versión adecuada:  
+   ```bash
+   nvm use
+   ```
+
+3. **Habilitar Corepack**  
+   Esto asegura que Yarn esté correctamente configurado:  
+   ```bash
+   corepack enable
+   ```
+
+4. **Configurar las variables de entorno**  
+   Copia el archivo de ejemplo y actualiza los valores proporcionados:  
+   ```bash
+   cp apps/web/.env.example apps/web/.env
+   ```
+   - **Nota para Windows:** Usa este comando en PowerShell:
+     ```powershell
+     Copy-Item apps\web\.env.example apps\web\.env
+     ```
+   Luego, edita el archivo `.env` en el directorio `apps/web` para agregar las credenciales y configuraciones necesarias.
+
+5. **Instalar dependencias**
+   Ejecuta el siguiente comando en la terminal, asegurate de estar en la raíz del proyecto:
+   ```bash
+   yarn install
+   ```
+
+6. **Construir la aplicación**
+   Genera los archivos necesarios para la ejecución:
+   ```bash
+   yarn build
+   ```
+
+7. **Iniciar la aplicación en modo de desarrollo**
+   Ejecuta el servidor local con:
+   ```bash
+   yarn dev
+   ```
+8. Accede a http://localhost:3000
+
+---
+
+## **Uso de Asistentes de IA**
+Durante el desarrollo de esta aplicación, se utilizó **ChatGPT** para los siguientes propósitos: 
+- Proporcionar sugerencias sobre la estructura del README y mejorar la claridad de las instrucciones.
+- Optimizar el flujo de instalación para garantizar compatibilidad entre sistemas operativos.
+
+---
+
+## **Decisiones Técnicas y Mejoras Futuras**
+### **Decisiones Técnicas:**
+1. **Next.js:** Se eligió por su facilidad para manejar rutas dinámicas y su capacidad para renderizado del lado del servidor (SSR). 
+2. **Supabase:** Ofrece una solución rápida y robusta para implementar bases de datos y autenticar usuarios sin necesidad de configurar un backend complejo.
+3. **Yarn:** Más rápido que npm y compatible con monorepositorios, lo que facilita la gestión de paquetes.
+
+### **Sugerencias para Mejoras Futuras:**
+1. **Autenticación de usuarios:** Implementar un sistema de autenticación para que cada usuario pueda gestionar sus propias recetas.
+2. **Filtrado y búsqueda:** Añadir funcionalidad para buscar recetas por nombre o categoría.
+3. **Despliegue:** Preparar la aplicación para un despliegue en plataformas como Vercel o AWS para que sea accesible globalmente.
+4. **Escalabilidad:** Migrar a una arquitectura más robusta, como GraphQL, si el número de recetas o usuarios aumenta significativamente.
+
+---
+
+pd: el readme ha sido actualizado a posteriori para ofrecer una clara guia de la instalación.
